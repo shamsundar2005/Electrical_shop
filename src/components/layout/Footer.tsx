@@ -80,7 +80,7 @@ const Footer = () => {
 
         <div className="pt-8 mt-8 border-t border-gray-700 text-center">
           <p className="text-gray-400">
-            &copy; {new Date().getFullYear()} Om Electricals. All rights reserved.
+            &copy; {new Date().getFullYear()} Om Electricals shop. All rights reserved.
           </p>
         </div>
       </div>
