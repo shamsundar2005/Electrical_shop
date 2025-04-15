@@ -23,7 +23,7 @@ const About = () => {
           >
             <h3 className="text-2xl font-bold mb-4 text-electric-blue-dark">Our Story</h3>
             <p className="text-gray-700 mb-4">
-              Founded in 1995 by Mr.P sivakumar, Amman Electricals began as a small electrical shop in the heart of the city. With a passion for quality electrical products and a commitment to exceptional customer service, we quickly gained a reputation as the go-to destination for all electrical needs.
+              Founded in 1992 by Mr.P sivakumar, Amman Electricals began as a small electrical shop in the heart of the city. With a passion for quality electrical products and a commitment to exceptional customer service, we quickly gained a reputation as the go-to destination for all electrical needs.
             </p>
             <p className="text-gray-700 mb-4">
               Over the years, we've grown from a single shop to a comprehensive electrical solutions provider with multiple locations across the region. Despite our growth, we've remained true to our founding principles: offering high-quality products, competitive prices, and unmatched expertise.
@@ -121,7 +121,7 @@ const About = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 1, delay: 0.4 }}
                 >
-                  <h4 className="text-4xl font-bold mb-2">5,000+</h4>
+                  <h4 className="text-4xl font-bold mb-2">7,000+</h4>
                   <p>Products</p>
                 </motion.div>
               </div>
@@ -133,7 +133,7 @@ const About = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 1, delay: 0.6 }}
                 >
-                  <h4 className="text-4xl font-bold mb-2">20+</h4>
+                  <h4 className="text-4xl font-bold mb-2">40+</h4>
                   <p>Brand Partners</p>
                 </motion.div>
               </div>
