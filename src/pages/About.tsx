@@ -10,7 +10,7 @@ const About = () => {
       <div className="container mx-auto px-4 py-12">
         <AnimatedSection>
           <SectionHeading
-            title="About Om Electricals"
+            title="About  Amman Electricals"
             subtitle="Powering homes and businesses since 1995"
           />
         </AnimatedSection>
@@ -23,13 +23,13 @@ const About = () => {
           >
             <h3 className="text-2xl font-bold mb-4 text-electric-blue-dark">Our Story</h3>
             <p className="text-gray-700 mb-4">
-              Founded in 1995 by Mr. Om Prakash Sharma, Om Electricals began as a small electrical shop in the heart of the city. With a passion for quality electrical products and a commitment to exceptional customer service, we quickly gained a reputation as the go-to destination for all electrical needs.
+              Founded in 1995 by Mr.P sivakumar, Amman Electricals began as a small electrical shop in the heart of the city. With a passion for quality electrical products and a commitment to exceptional customer service, we quickly gained a reputation as the go-to destination for all electrical needs.
             </p>
             <p className="text-gray-700 mb-4">
               Over the years, we've grown from a single shop to a comprehensive electrical solutions provider with multiple locations across the region. Despite our growth, we've remained true to our founding principles: offering high-quality products, competitive prices, and unmatched expertise.
             </p>
             <p className="text-gray-700">
-              Today, Om Electricals is proud to be a family-owned business that continues to serve our community with the same dedication and personalized service that has defined us for nearly three decades.
+              Today, Amman Electricals is proud to be a family-owned business that continues to serve our community with the same dedication and personalized service that has defined us for nearly three decades.
             </p>
           </motion.div>
 
@@ -41,7 +41,7 @@ const About = () => {
           >
             <img 
               src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-              alt="Om Electricals Store" 
+              alt="Amman Electricals Store" 
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">

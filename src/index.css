@@ -97,7 +97,7 @@
     font-family: 'Inter', sans-serif;
   }
 
-  /* Custom utility classes for Om Electricals */
+  /* Custom utility classes for Amman Electricals */
   .glass {
     @apply backdrop-blur-md bg-white/50 border border-white/20 shadow-lg;
   }

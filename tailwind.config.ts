@@ -62,7 +62,7 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Om Electricals custom colors
+				// Amman Electricals custom colors
 				electric: {
 					blue: {
 						DEFAULT: '#1E40AF',

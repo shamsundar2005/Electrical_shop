@@ -167,7 +167,7 @@ const Contact = () => {
                 style={{ border: 0 }} 
                 allowFullScreen 
                 loading="lazy"
-                title="Om Electricals Store Location"
+                title="Amman Electricals Store Location"
               ></iframe>
             </div>
           </motion.div>

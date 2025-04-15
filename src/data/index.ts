@@ -1,5 +1,5 @@
 
-// Demo data for the Om Electricals website
+// Demo data for the Amman Electricals website
 
 // Categories
 export const categories = [
@@ -168,21 +168,21 @@ export const testimonials = [
     name: "Raj Sharma",
     avatar: "https://randomuser.me/api/portraits/men/32.jpg",
     role: "Homeowner",
-    content: "I've been purchasing all my electrical supplies from Om Electricals for the last 3 years. Their product quality and customer service is unmatched!"
+    content: "I've been purchasing all my electrical supplies from Amman Electricals for the last 3 years. Their product quality and customer service is unmatched!"
   },
   {
     id: "2",
     name: "Priya Patel",
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
     role: "Interior Designer",
-    content: "As an interior designer, I always recommend Om Electricals to my clients. Their range of decorative lighting options is simply amazing."
+    content: "As an interior designer, I always recommend Amman Electricals to my clients. Their range of decorative lighting options is simply amazing."
   },
   {
     id: "3",
     name: "Vikram Singh",
     avatar: "https://randomuser.me/api/portraits/men/67.jpg",
     role: "Electrical Contractor",
-    content: "For bulk orders and project supplies, Om Electricals has been my go-to shop. Their prompt delivery and competitive pricing help me complete projects on time."
+    content: "For bulk orders and project supplies, Amman Electricals has been my go-to shop. Their prompt delivery and competitive pricing help me complete projects on time."
   }
 ];
 
@@ -193,7 +193,7 @@ export const team = [
     name: "Om Prakash Sharma",
     role: "Founder & CEO",
     avatar: "https://randomuser.me/api/portraits/men/84.jpg",
-    bio: "Started Om Electricals in 1995 with a small shop, now serving thousands of customers across the region."
+    bio: "Started Amman Electricals in 1995 with a small shop, now serving thousands of customers across the region."
   },
   {
     id: "2",
