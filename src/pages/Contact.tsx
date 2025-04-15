@@ -73,7 +73,7 @@ const Contact = () => {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="johndoe@example.com"
+                  placeholder="sriammanele91@gmail.com"
                   required
                   className="mt-1"
                 />
@@ -86,7 +86,7 @@ const Contact = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="+91 9876543210"
+                  placeholder="+91 9788005235"
                   className="mt-1"
                 />
               </div>
@@ -125,7 +125,7 @@ const Contact = () => {
                   <Phone className="h-5 w-5 text-electric-blue mr-3 mt-1" />
                   <div>
                     <h4 className="font-semibold">Phone</h4>
-                    <p className="text-gray-600">+91 98765 43210</p>
+                    <p className="text-gray-600">+91 9788005235</p>
                     <p className="text-gray-600">+91 12345 67890</p>
                   </div>
                 </div>
@@ -134,8 +134,7 @@ const Contact = () => {
                   <Mail className="h-5 w-5 text-electric-blue mr-3 mt-1" />
                   <div>
                     <h4 className="font-semibold">Email</h4>
-                    <p className="text-gray-600">info@omelectricals.com</p>
-                    <p className="text-gray-600">support@omelectricals.com</p>
+                    <p className="text-gray-600">sriammanele91@gmail.com</p>
                   </div>
                 </div>
                 
@@ -143,8 +142,8 @@ const Contact = () => {
                   <MapPin className="h-5 w-5 text-electric-blue mr-3 mt-1" />
                   <div>
                     <h4 className="font-semibold">Location</h4>
-                    <p className="text-gray-600">123 Electrical Avenue,</p>
-                    <p className="text-gray-600">City Center, State - 123456</p>
+                    <p className="text-gray-600">Sangagiri main road</p>
+                    <p className="text-gray-600">Magudanchavadi-salem,Tamilnadu,637103</p>
                   </div>
                 </div>
                 
@@ -153,7 +152,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold">Business Hours</h4>
                     <p className="text-gray-600">Monday - Saturday: 9:00 AM - 8:00 PM</p>
-                    <p className="text-gray-600">Sunday: 10:00 AM - 6:00 PM</p>
+                    <p className="text-gray-600">Sunday: Holiday</p>
                   </div>
                 </div>
               </div>
@@ -161,7 +160,7 @@ const Contact = () => {
             
             <div className="bg-white rounded-lg shadow-lg overflow-hidden h-80">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.2233913121413!2d77.19159801508094!3d28.613939082429348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b741d057%3A0xcdee88e47393c3f1!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1637309850935!5m2!1sen!2sin" 
+                src="" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 

@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center mb-4">
               <span className="text-2xl font-bold text-white">
-                Om <span className="text-electric-yellow">Electricals</span>
+                Amman <span className="text-electric-yellow">Electricals</span>
               </span>
             </Link>
             <p className="text-gray-300 mb-4">
@@ -64,7 +64,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 text-electric-yellow" />
-                <span className="text-gray-300">123 Electricity Lane, Circuit City, Power State, 54321</span>
+                <span className="text-gray-300">Sankari Main Rd, Magudanchavadi, Tamil Nadu 637103</span>
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-electric-yellow" />
@@ -72,7 +72,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-electric-yellow" />
-                <a href="mailto:info@omelectricals.com" className="text-gray-300 hover:text-white transition-colors">info@omelectricals.com</a>
+                <a href="mailto:info@omelectricals.com" className="text-gray-300 hover:text-white transition-colors">sriammanele@gmail.com</a>
               </li>
             </ul>
           </div>
