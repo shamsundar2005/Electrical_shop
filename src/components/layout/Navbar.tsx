@@ -23,7 +23,7 @@ export const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center space-x-2">
               <span className="text-2xl font-bold text-electric-blue animate-spark">
-                Om <span className="text-electric-yellow-dark">Electricals</span>
+                AMMAN <span className="text-electric-yellow-dark">Electricals</span>
               </span>
             </Link>
           </div>
