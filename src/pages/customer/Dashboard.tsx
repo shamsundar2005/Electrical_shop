@@ -1,10 +1,10 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/ui/section-heading";
 import AnimatedSection from "@/components/ui/animated-section";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/lib/supabaseClient"; // adjust path as needed
 import { 
   Card, 
   CardContent, 
@@ -46,6 +46,14 @@ const recentlyViewed = [
   { id: 3, name: 'Copper Wire 1.5mm', category: 'Wires', image: 'https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&w=200&q=80', price: 1299 },
 ];
 
+interface UserInfo {
+  full_name: string;
+  email: string;
+  phone?: string;
+  address?: string;
+  joined_at?: string;
+}
+
 const wishlistItems = [
   { id: 4, name: 'Smart Home Hub', category: 'Smart Home', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&w=200&q=80', price: 2499 },
   { id: 5, name: 'Ceiling Fan', category: 'Fans', image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&w=200&q=80', price: 1899 },
@@ -57,7 +65,37 @@ const inquiryHistory = [
 ];
 
 const CustomerDashboard = () => {
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const [activeTab, setActiveTab] = useState("profile");
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const {
+        data: { user },
+        error: userError,
+      } = await supabase.auth.getUser();
+
+      if (user && user.id) {
+        const { data, error } = await supabase
+          .from("profiles")
+          .select("full_name, email, phone, address, joined_at")
+          .eq("id", user.id)
+          .single();
+
+        if (data) {
+          setUserInfo(data);
+        }
+
+        if (error) {
+          console.error("Error fetching profile data:", error.message);
+        }
+      } else if (userError) {
+        console.error("Error fetching user:", userError.message);
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   return (
     <Layout>
@@ -69,9 +107,8 @@ const CustomerDashboard = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-3xl font-bold text-electric-blue-dark">My Account</h1>
-            <p className="text-gray-600">Welcome back, John</p>
+            <p className="text-gray-600">Welcome back, {userInfo?.full_name || "Guest"}</p>
           </motion.div>
-          
           <div className="flex space-x-4">
             <Button variant="outline" size="sm">
               <Settings className="h-4 w-4 mr-2" />
@@ -103,21 +140,21 @@ const CustomerDashboard = () => {
                     <div className="w-24 h-24 rounded-full bg-gray-200 mx-auto mb-4 flex items-center justify-center">
                       <User className="h-12 w-12 text-gray-500" />
                     </div>
-                    <h3 className="text-xl font-bold">John Doe</h3>
+                    <h3 className="text-xl font-bold">{userInfo?.full_name || "Guest"}</h3>
                     <p className="text-gray-600">Customer since May 2022</p>
                     
                     <div className="mt-6 space-y-2 text-left">
                       <div className="flex justify-between">
                         <span className="text-gray-600">Email:</span>
-                        <span>john.doe@example.com</span>
+                        <span>{userInfo?.email || "N/A"}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">Phone:</span>
-                        <span>+91 98765 43210</span>
+                        <span>{userInfo?.phone || "N/A"}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">Address:</span>
-                        <span className="text-right">123 Main St, City, State 123456</span>
+                        <span className="text-right">{userInfo?.address || "N/A"}</span>
                       </div>
                     </div>
                   </CardContent>
