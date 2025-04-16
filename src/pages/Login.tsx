@@ -1,25 +1,13 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, User, ShieldCheck } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import AnimatedSection from "@/components/ui/animated-section";
 import { USER_ROLES } from "@/data";
-
-// For demo purposes only
-const demoCredentials = {
-  admin: {
-    email: "admin@omelectricals.com",
-    password: "admin123"
-  },
-  customer: {
-    email: "customer@example.com",
-    password: "customer123"
-  }
-};
+import { supabase } from "@/lib/supabaseClient";
 
 const Login = () => {
   const [isLoginView, setIsLoginView] = useState(true);
@@ -28,54 +16,64 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  
-  // Handle login
-  const handleLogin = (e: React.FormEvent) => {
+  const navigate = useNavigate();
+
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Login with:", { email, password, role });
-    
-    // Demo logic - in a real app this would connect to backend
-    if (role === USER_ROLES.ADMIN && 
-        email === demoCredentials.admin.email && 
-        password === demoCredentials.admin.password) {
-      // Redirect to admin panel
-      window.location.href = "/admin/dashboard";
-    } else if (role === USER_ROLES.CUSTOMER && 
-              email === demoCredentials.customer.email && 
-              password === demoCredentials.customer.password) {
-      // Redirect to customer dashboard
-      window.location.href = "/customer/dashboard";
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      alert("Login failed: " + error.message);
     } else {
-      alert("Invalid credentials. Try using the demo accounts:\nAdmin: admin@omelectricals.com / admin123\nCustomer: customer@example.com / customer123");
-    }
-  };
-  
-  // Handle signup
-  const handleSignup = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Sign up with:", { name, email, password, role });
-    
-    // Demo only - show success message and switch to login
-    alert(`Account created successfully as ${role}! Please log in.`);
-    setIsLoginView(true);
-  };
-  
-  // Animation variants
-  const formVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.5,
-        staggerChildren: 0.1
+      if (role === USER_ROLES.ADMIN) {
+        navigate("/admin/dashboard");
+      } else {
+        navigate("/customer/dashboard");
       }
     }
   };
-  
+
+  const handleSignup = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          name,
+          role,
+        },
+      },
+    });
+
+    if (error) {
+      alert("Signup failed: " + error.message);
+    } else {
+      alert(`Account created successfully as ${role}! Please log in.`);
+      setIsLoginView(true);
+    }
+  };
+
+  const formVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
@@ -83,9 +81,8 @@ const Login = () => {
       <Link to="/" className="absolute top-8 left-8 text-electric-blue hover:text-electric-blue-dark font-semibold">
         ← Back to Home
       </Link>
-      
+
       <div className="max-w-md w-full bg-white rounded-xl shadow-lg overflow-hidden">
-        {/* Top role selection tabs */}
         <div className="flex">
           <button
             className={`w-1/2 py-4 font-medium text-center transition-colors ${role === USER_ROLES.CUSTOMER ? 'bg-electric-blue text-white' : 'bg-gray-100 text-gray-600'}`}
@@ -102,7 +99,7 @@ const Login = () => {
             Admin
           </button>
         </div>
-        
+
         <div className="px-8 py-10">
           <AnimatedSection>
             <div className="text-center mb-8">
@@ -110,12 +107,12 @@ const Login = () => {
                 {isLoginView ? 'Login' : 'Create Account'}
               </h2>
               <p className="mt-2 text-gray-600">
-                {isLoginView 
-                  ? `Sign in to your ${role === USER_ROLES.ADMIN ? 'admin' : 'customer'} account` 
-                  : `Register as a new ${role === USER_ROLES.ADMIN ? 'admin' : 'customer'}`}
+                {isLoginView
+                  ? `Sign in to your ${role.toLowerCase()} account`
+                  : `Register as a new ${role.toLowerCase()}`}
               </p>
             </div>
-            
+
             <motion.form
               variants={formVariants}
               initial="hidden"
@@ -137,7 +134,7 @@ const Login = () => {
                   />
                 </motion.div>
               )}
-              
+
               <motion.div variants={itemVariants}>
                 <Label htmlFor="email">Email Address</Label>
                 <Input
@@ -150,7 +147,7 @@ const Login = () => {
                   className="mt-1"
                 />
               </motion.div>
-              
+
               <motion.div variants={itemVariants}>
                 <Label htmlFor="password">Password</Label>
                 <div className="relative">
@@ -176,7 +173,7 @@ const Login = () => {
                   </button>
                 </div>
               </motion.div>
-              
+
               {isLoginView && (
                 <motion.div variants={itemVariants} className="text-right">
                   <a href="#" className="text-sm text-electric-blue hover:underline">
@@ -184,17 +181,17 @@ const Login = () => {
                   </a>
                 </motion.div>
               )}
-              
+
               <motion.div variants={itemVariants}>
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="w-full bg-electric-blue hover:bg-electric-blue-dark"
                 >
                   {isLoginView ? 'Sign In' : 'Sign Up'}
                 </Button>
               </motion.div>
             </motion.form>
-            
+
             <div className="mt-8 text-center">
               <button
                 onClick={() => setIsLoginView(!isLoginView)}
@@ -203,14 +200,6 @@ const Login = () => {
                 {isLoginView ? "Don't have an account? Sign up" : "Already have an account? Sign in"}
               </button>
             </div>
-            
-            {isLoginView && (
-              <div className="mt-6 border-t border-gray-200 pt-4">
-                <p className="text-xs text-gray-500 text-center">
-                  For demo: Use admin@omelectricals.com / admin123 for Admin or customer@example.com / customer123 for Customer
-                </p>
-              </div>
-            )}
           </AnimatedSection>
         </div>
       </div>
