@@ -107,7 +107,7 @@ const CustomerDashboard = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-3xl font-bold text-electric-blue-dark">My Account</h1>
-            <p className="text-gray-600">Welcome back, {userInfo?.full_name || "Guest"}</p>
+            <p className="text-gray-600">Welcome back, {userInfo?.email || "Guest"}</p>
           </motion.div>
           <div className="flex space-x-4">
             <Button variant="outline" size="sm">
@@ -140,13 +140,13 @@ const CustomerDashboard = () => {
                     <div className="w-24 h-24 rounded-full bg-gray-200 mx-auto mb-4 flex items-center justify-center">
                       <User className="h-12 w-12 text-gray-500" />
                     </div>
-                    <h3 className="text-xl font-bold">{userInfo?.full_name || "Guest"}</h3>
+                    <h3 className="text-xl font-bold">{userInfo?.email || "Guest"}</h3>
                     <p className="text-gray-600">Customer since May 2022</p>
                     
                     <div className="mt-6 space-y-2 text-left">
                       <div className="flex justify-between">
-                        <span className="text-gray-600">Email:</span>
-                        <span>{userInfo?.email || "N/A"}</span>
+                        <span className="text-gray-600">Name:</span>
+                        <span>{userInfo?.full_name || "N/A"}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">Phone:</span>
