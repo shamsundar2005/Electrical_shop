@@ -185,6 +185,7 @@ const Contact = () => {
                 title="Amman Electricals Store Location"
               ></iframe>
             </div>
+            
           </motion.div>
         </div>
       </div>
